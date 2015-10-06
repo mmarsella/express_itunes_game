@@ -106,6 +106,20 @@ app.get("/randomsong", function (req,res){
   });
 });
 
+app.put("/songs",function (req,res){
+  console.log("REQ BODY:",req.body);
+  db.User.findById(req.session.id, function (err,user){
+    if(err){
+      console.log(err);
+    }else{
+      console.log("HELLO!");
+      res.redirect("/randomsong");
+    }
+
+  });
+
+});
+
 // HIGH SCORE PAGE
 app.get("/scores", function (req,res){
   // db.Score.find({}, function (err,scores){

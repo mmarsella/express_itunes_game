@@ -30,7 +30,6 @@
     </div>
       <br>
       <br>
-      <button class="btn-warning btn-lg" id="button">PLAY</button>
     </div>
   </div>
 
@@ -40,10 +39,11 @@
 
 <!-- HIDDEN FORM: send to a put  -->
 
-  <form action="/songs" method="POST" id="hiddenForm">
+  <form action="/songs?_method=put" method="POST" id="hiddenForm">
     <input type="hidden" name="score[name]" value="" id="scoreName">
     <input type="hidden" name="score[score]" value="" id="scoreScore">
     <input type="hidden" name="nextsong" value="true" id="nextSong">
+      <button class="btn-warning btn-lg" id="button">PLAY</button>
   </form>
 
 
