@@ -4,35 +4,33 @@
   
        <button class="btn-warning" id="stats"><a href="/scores">High Scores</a></button>
   </div>
-
-  <div class="col-xs-6 text-center">
-  
     
-
+  <div class="col-xs-6 text-center">
+      <form>
       <label for="input">Guess this song: </label>
       <input type="text" name="input" id="input">
     </form>
     
-
     <div class="info text-center" style="display: none" id="answer">
        <div class="word-bubble">
         <h1><span id="artistName"></span></h1>
-       </div>
+           <div class="poster">
+              <img src="<%=song.artworkUrl100%>" alt="">
+           </div> 
+            <h2 id="guess"></h2>
+            <h5 id="artist"><%=song.artistName%></h5>
+            <h5 id="track"><%=song.trackName%></h5>
+            <h5 id="album"><%=song.collectionName%></h5>
+      </div>
+    </div>
+      <br>
       <br>
       <button class="btn-warning btn-lg" id="button">PLAY</button>
-      <form action=""></form>
     </div>
   </div>
 
   <div class="col-xs-3">
-
-    
-
-    <div class="wins">
-
-    <button class="btn-warning" id="stats">Stats</button>
-    <span id="count"></span>
-    </div>
+    <audio id="audio_preview" src="<%=song.previewUrl%>"></audio> 
   </div> 
 
 

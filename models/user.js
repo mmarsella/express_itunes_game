@@ -15,7 +15,6 @@ var userSchema = new mongoose.Schema({
     type:String,
     required:true
   },
-  email:String,
 
   scores:[{
     type:mongoose.Schema.Types.ObjectId,
