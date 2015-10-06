@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var Log = require("./log");
+var Score = require("./score");
 var bcrypt = require("bcrypt");
 var SALT_WORK_FACTOR = 10;
 
@@ -17,9 +17,9 @@ var userSchema = new mongoose.Schema({
   },
   email:String,
 
-  logs:[{
+  scores:[{
     type:mongoose.Schema.Types.ObjectId,
-    ref:"Log"
+    ref:"Score"
   }],
 });
 
@@ -27,7 +27,7 @@ var userSchema = new mongoose.Schema({
 
 userSchema.pre('remove', function (next){
   //remove every log from this user before deleting them
-  Log.remove({user: this._id}).exec();
+  Score.remove({user: this._id}).exec();
 });
 
 userSchema.pre('save', function (next){

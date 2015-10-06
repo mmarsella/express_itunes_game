@@ -70,9 +70,9 @@ app.post("/login", function (req,res){
       console.log("THE USER: " + user);
       if(!err && user !== null){
         req.login(user);
-        res.redirect("/users/" + user._id);
+        res.redirect("/randomsong");
       }else{
-        res.redirect("/users");
+        res.redirect("404");
       }
     });
 });
