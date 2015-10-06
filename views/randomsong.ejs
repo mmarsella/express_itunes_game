@@ -4,7 +4,6 @@
   
        <button class="btn-warning" id="stats"><a href="/scores">High Scores</a></button>
   </div>
-    
   <div class="col-xs-6 text-center">
   <%if(user){%>
   <h1><%=user.score%></h1>
@@ -30,20 +29,20 @@
     </div>
       <br>
       <br>
+    <!-- HIDDEN FORM: send to a put  -->
+  </div>
     <form action="/songs?_method=put" method="POST" id="hiddenForm">
       <input type="hidden" name="score[name]" value="" id="scoreName">
       <input type="hidden" name="score[score]" value="" id="scoreScore">
       <input type="hidden" name="nextsong" value="true" id="nextSong">
         <button class="btn-warning btn-lg text-cen" id="button">PLAY</button>
     </form>
-  </div>
   
 
   <div class="col-xs-3">
     <audio id="audio_preview" src="<%=song.previewUrl%>"></audio> 
   </div> 
 
-<!-- HIDDEN FORM: send to a put  -->
 
 
 

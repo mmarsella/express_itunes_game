@@ -107,12 +107,14 @@ app.get("/randomsong", function (req,res){
 });
 
 app.put("/songs",function (req,res){
-  console.log("REQ BODY:",req.body);
+  console.log("REQ BODY:",req.body.score);
   db.User.findById(req.session.id, function (err,user){
     if(err){
       console.log(err);
     }else{
       console.log("HELLO!");
+      user.score = user.score + parseInt(req.body.score.score);
+      user.save();
       res.redirect("/randomsong");
     }
   });
