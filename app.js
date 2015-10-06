@@ -49,6 +49,8 @@ app.get("/signup", routeMiddleware.preventLoginSignup, function (req,res){
 app.post("/signup", function (req,res){
   var newUser = req.body.user;
   db.User.create(newUser, function (err,user){
+    user.score = 0;
+    user.save();
     console.log(user);
     if(user){
       req.login(user);
@@ -60,9 +62,9 @@ app.post("/signup", function (req,res){
   });
 });
 
-app.get("/login", function (req,res){
-  res.render("users/login");
-});
+// app.get("/login", function (req,res){
+//   res.render("users/login");
+// });
 
 app.post("/login", function (req,res){
   db.User.authenticate(req.body.user,
@@ -72,6 +74,7 @@ app.post("/login", function (req,res){
         req.login(user);
         res.redirect("/randomsong");
       }else{
+        console.log("THE ERROR:",err);
         res.redirect("404");
       }
     });

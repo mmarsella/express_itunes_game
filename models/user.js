@@ -1,5 +1,4 @@
 var mongoose = require("mongoose");
-var Score = require("./score");
 var bcrypt = require("bcrypt");
 var SALT_WORK_FACTOR = 10;
 
@@ -15,19 +14,11 @@ var userSchema = new mongoose.Schema({
     type:String,
     required:true
   },
-
-  scores:[{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:"Score"
-  }],
+  score:Number
 });
 
 /**** HOOKS ****/
 
-userSchema.pre('remove', function (next){
-  //remove every log from this user before deleting them
-  Score.remove({user: this._id}).exec();
-});
 
 userSchema.pre('save', function (next){
   var user = this;
@@ -57,7 +48,7 @@ userSchema.pre('save', function (next){
 userSchema.statics.authenticate = function (formData, callback) {
   // this refers to the model!
   this.findOne({
-    email: formData.email
+    name: formData.name //*****
   },
   function (err, user) {
     if (user === null){

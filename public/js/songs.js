@@ -17,7 +17,7 @@ $("#button").on("click", function(){
   });
 
   //USERS GUESS
-$("form").on("submit", function(e){
+$("#form").on("submit", function(e){
   e.preventDefault();
   input = $("#input").val();
   if($("#input").val().length !== 0)
@@ -56,11 +56,11 @@ function checkWin(input)
 
   }
 }
+
 //HIDDEN FORM
 $("#hiddenForm").on("submit", function (e){
   $("#scoreName").val(trackName);  // assign trackname to hidden input
   $("#scoreScore").val(winCount);
-
 });
 
 

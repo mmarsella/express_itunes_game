@@ -6,7 +6,12 @@
   </div>
     
   <div class="col-xs-6 text-center">
-      <form>
+  <%if(user){%>
+  <h1><%=user.score%></h1>
+  <%}else{%>
+  <h1>no user!</h1>
+  <%}%>
+      <form id="form">
       <label for="input">Guess this song: </label>
       <input type="text" name="input" id="input">
     </form>
@@ -34,6 +39,7 @@
   </div> 
 
 <!-- HIDDEN FORM: send to a put  -->
+
   <form action="/songs" method="POST" id="hiddenForm">
     <input type="hidden" name="score[name]" value="" id="scoreName">
     <input type="hidden" name="score[score]" value="" id="scoreScore">
