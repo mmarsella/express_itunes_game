@@ -115,9 +115,7 @@ app.put("/songs",function (req,res){
       console.log("HELLO!");
       res.redirect("/randomsong");
     }
-
   });
-
 });
 
 // HIGH SCORE PAGE

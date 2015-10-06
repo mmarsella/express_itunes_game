@@ -30,8 +30,14 @@
     </div>
       <br>
       <br>
-    </div>
+    <form action="/songs?_method=put" method="POST" id="hiddenForm">
+      <input type="hidden" name="score[name]" value="" id="scoreName">
+      <input type="hidden" name="score[score]" value="" id="scoreScore">
+      <input type="hidden" name="nextsong" value="true" id="nextSong">
+        <button class="btn-warning btn-lg text-cen" id="button">PLAY</button>
+    </form>
   </div>
+  
 
   <div class="col-xs-3">
     <audio id="audio_preview" src="<%=song.previewUrl%>"></audio> 
@@ -39,12 +45,6 @@
 
 <!-- HIDDEN FORM: send to a put  -->
 
-  <form action="/songs?_method=put" method="POST" id="hiddenForm">
-    <input type="hidden" name="score[name]" value="" id="scoreName">
-    <input type="hidden" name="score[score]" value="" id="scoreScore">
-    <input type="hidden" name="nextsong" value="true" id="nextSong">
-      <button class="btn-warning btn-lg" id="button">PLAY</button>
-  </form>
 
 
 
