@@ -91,11 +91,17 @@ app.get("/", function(req, res) {
 
 //GO TO THE GAME
 app.get("/randomsong", function (req,res){
+  db.User.findById(req.session.id, function (err,user){
+    if(err){
+      console.log(err);
+    }else{
+     res.render("randomsong",{user:user});
+    }
+  });
   // request.get("https://itunes.apple.com/us/lookup?id=" + getRandomSong(), function (err,response,body){
   //   var songData = JSON.parse(body).results[0];
   //   var data = {song:songData, score: scoreData};
   //   var scoreData = {id: req.query.id, name: req.query.name, score: req.query.score};
-  res.render("randomsong");
   });
 // });
 
