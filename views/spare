@@ -1,0 +1,13 @@
+     <!--  <div class="poster">
+              <img src="<%=song.artworkUrl100%>" alt="">
+          </div> -->
+         <!--  <h2 id="guess"></h2>
+          <h2 id="artist"><%=songData.artistName%></h2>
+          <h2 id="track"><%=songData.trackName%></h2>
+          <h2 id="album"><%=songData.collectionName%></h2>
+  </div> -->
+
+  <!-- <audio id="audio_preview" src="<%=song.previewUrl%>"></audio> -->
+
+
+      <!-- <a href="/scores" class="btn-lg btn-warning stats text-center" id="button">High Scores</a> -->
