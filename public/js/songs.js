@@ -34,6 +34,9 @@ $("form").on("submit", function(e){
     $("audio")[0].pause();
 });
 
+
+
+
 function checkWin(input)
 {
   // check answer - case insensitive
@@ -42,16 +45,23 @@ function checkWin(input)
     $("#answer").attr("style","");
     $("#guess").text("Correct!!!");
     $("#score").val(1);
-    winCount++;
+    winCount = 1;
   }
   else
   { 
     $("#answer").attr("style","");
     $("#guess").text("WRONG!!!");
     $("#score").val(0);
+    winCount = 0;
 
   }
 }
+//HIDDEN FORM
+$("#hiddenForm").on("submit", function (e){
+  $("#scoreName").val(trackName);  // assign trackname to hidden input
+  $("#scoreScore").val(winCount);
+
+});
 
 
 
