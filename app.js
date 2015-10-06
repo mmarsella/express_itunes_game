@@ -91,31 +91,77 @@ app.get("/", function(req, res) {
 
 //GO TO THE GAME
 app.get("/randomsong", function (req,res){
-  request.get("https://itunes.apple.com/us/lookup?id=" + getRandomSong(), function (err,response,body){
-    var songData = JSON.parse(body).results[0];
-    var data = {song:songData, score: scoreData};
-    var scoreData = {id: req.query.id, name: req.query.name, score: req.query.score};
+  // request.get("https://itunes.apple.com/us/lookup?id=" + getRandomSong(), function (err,response,body){
+  //   var songData = JSON.parse(body).results[0];
+  //   var data = {song:songData, score: scoreData};
+  //   var scoreData = {id: req.query.id, name: req.query.name, score: req.query.score};
   res.render("randomsong", data);
   });
+// });
+
+
+// HIGH SCORE PAGE
+app.get("/scores", function (req,res){
+  // db.Score.find({}, function (err,scores){
+  //   console.log(scores);
+  //   if(err){
+  //     console.log(err);
+  //   }else{
+    res.render("index");
+  //   }
+  // });
 });
 
+//To create a new high score
+app.get("/scores/new", function (req,res){
+  res.render("new");
+});
 
+//POST high score
+app.post("/scores", function (req,res){
+  //   db.Score.create({
+  //   name:req.body.username,
+  //   score:req.body.score
+  // });
+  //   if(req.body.nextsong){
+  //     res.redirect("/randomsong?id=" + score.id + "&name=" + encodeURIComponent(score.name) + "&score=" + encodeURIComponent(score.score));
+  //   }else{
+      res.redirect("/scores");
+  //   }
+});
 
+//EDIT High score
+app.get("/scores/:id/edit", function (req,res){
+  // db.Score.findById(req.params.id, function (err,score){
+  //   if(err){
+  //     console.log(err);
+  //   }else{
+      res.render("edit");
+  //   }
+  // });
+});
 
+//SHOW specific high score
+app.put("/scores/:id", function (req,res){
+  // db.Score.findByIdAndUpdate(req.params.id, {name:req.body.name,score:req.body.score}, function (err, score){
+  //   if(err){
+  //     res.render("404");
+  //   }else{
+      res.redirect("/scores");
+  //   }
+  // });
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//delete a high score
+app.delete("/scores/:id", function (req,res){
+  db.Score.findByIdAndRemove(req.params.id, function (err){
+      if(err){
+        res.render("404");
+      }else{
+        res.redirect("/scores");
+      }
+  });
+});
 
 
 
