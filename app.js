@@ -87,6 +87,16 @@ app.get("/logout", function (req,res){
 
 /********** GAME ROUTES ***************/
 
+app.get("/ready", function (req,res){
+    db.User.findById(req.session.id, function (err,user){
+    if(err){
+      console.log(err);
+    }else{
+     res.render("ready",{user:user});
+    }
+  });
+});
+
 //redirects to the game
 app.get("/", function(req, res) {
   res.redirect("/randomsong");

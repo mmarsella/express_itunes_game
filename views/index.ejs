@@ -23,19 +23,18 @@
   
 <script type="text/javascript" src="/js/chart.js"></script>
 
-
   <body>
     <div class="container">
       <!-- Static navbar -->
       <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
           <div class="navbar-header navl">
-            <a class="navbar-brand brandx" href="/randomsong">Itunes Game</a>
+            <a class="navbar-brand brandx" href="/ready">Itunes Game</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navl">
               <% if(currentUser) { %>
-              <li><a href="/users/show"><strong>~<%= user.name%>:<%=user.score%></strong></a></li>
+              <li><a href="/users/show"><strong><%= user.name%>:<%=user.score%></strong></a></li>
               <% } %>
             </ul>
             <ul class="nav navbar-nav navbar-right">

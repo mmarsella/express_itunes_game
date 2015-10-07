@@ -2,14 +2,10 @@
 
  <div class="col-xs-3 wins ">
   
-       <button class="btn-warning" id="stats"><a href="/scores">High Scores</a></button>
+       <a class="btn-lg btn-success"href="/scores">SCORES</a>
   </div>
   <div class="col-xs-6 text-center">
-  <%if(user){%>
-  <h1><%=user.score%></h1>
-  <%}else{%>
-  <h1>no user!</h1>
-  <%}%>
+
       <form id="form">
       <label for="input">Guess this song: </label>
       <input type="text" name="input" id="input">
@@ -28,18 +24,16 @@
       </div>
     </div>
       <br>
-      <br>
     <%if(user){%>
     <form action="/songs?_method=put" method="POST" id="hiddenForm">
     <%}else%>
     <%{%>
     <form id="hiddenForm">
     <%}%>
-
       <input type="hidden" name="score[name]" value="" id="scoreName">
       <input type="hidden" name="score[score]" value="" id="scoreScore">
       <input type="hidden" name="nextsong" value="true" id="nextSong">
-        <button class="btn-warning btn-lg text-cen" id="button">PLAY</button>
+        <button class="btn-warning btn-lg text-cen" id="button">NEXT</button>
     </form>
     <!-- HIDDEN FORM: send to a put  -->
   </div>
