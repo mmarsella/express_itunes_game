@@ -151,7 +151,7 @@ app.get("/scores/new", function (req,res){
   res.render("new");
 });
 
-//POST high score
+//POST high score --> Don't need to: update scores of users with score:0
 app.post("/scores", function (req,res){
   //   db.Score.create({
   //   name:req.body.username,
@@ -164,7 +164,7 @@ app.post("/scores", function (req,res){
   //   }
 });
 
-//EDIT High score
+//EDIT High score  --> Why?
 app.get("/scores/:id/edit", function (req,res){
   // db.Score.findById(req.params.id, function (err,score){
   //   if(err){
@@ -175,7 +175,7 @@ app.get("/scores/:id/edit", function (req,res){
   // });
 });
 
-//SHOW specific high score
+//SHOW specific high score --> necessary??
 app.put("/scores/:id", function (req,res){
   // db.Score.findByIdAndUpdate(req.params.id, {name:req.body.name,score:req.body.score}, function (err, score){
   //   if(err){
@@ -186,9 +186,10 @@ app.put("/scores/:id", function (req,res){
   // });
 });
 
-//delete a high score
-app.delete("/scores/:id", function (req,res){
-  db.Score.findByIdAndRemove(req.params.id, function (err){
+//add a score reset button
+//delete a high score  --> would it still be CRUD'ish if I change the score back to 0??
+app.delete("/scores", function (req,res){
+  db.User.findById(req.session.id, function (err){
       if(err){
         res.render("404");
       }else{
@@ -196,7 +197,6 @@ app.delete("/scores/:id", function (req,res){
       }
   });
 });
-
 
 
 app.get('*', function(req,res){
