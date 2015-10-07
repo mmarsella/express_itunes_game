@@ -1,11 +1,8 @@
 <% include ./partials/header %>
-
  <div class="col-xs-3 wins ">
-  
        <a class="btn-lg btn-success"href="/scores">SCORES</a>
   </div>
   <div class="col-xs-6 text-center">
-
       <form id="form">
       <label for="input">Guess this song: </label>
       <input type="text" name="input" id="input">
@@ -23,7 +20,7 @@
             <h5 id="album"><%=song.collectionName%></h5>
       </div>
     </div>
-      <br>
+    <br>
     <%if(user){%>
     <form action="/songs?_method=put" method="POST" id="hiddenForm">
     <%}else%>
@@ -33,13 +30,11 @@
       <input type="hidden" name="score[name]" value="" id="scoreName">
       <input type="hidden" name="score[score]" value="" id="scoreScore">
       <input type="hidden" name="nextsong" value="true" id="nextSong">
-        <button class="btn-warning btn-lg text-cen" id="button">NEXT</button>
+      <button class="btn-warning btn-lg text-cen" id="button">NEXT</button>
     </form>
     <!-- HIDDEN FORM: send to a put  -->
   </div>
-  
   <div class="col-xs-3">
     <audio id="audio_preview" src="<%=song.previewUrl%>"></audio> 
   </div> 
-
 <% include ./partials/footer %>

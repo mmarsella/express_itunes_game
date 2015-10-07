@@ -3,7 +3,6 @@ var bcrypt = require("bcrypt");
 var SALT_WORK_FACTOR = 10;
 
 /**** SCHEMA ****/
-
 var userSchema = new mongoose.Schema({
   name: {
     type:String,
@@ -18,8 +17,6 @@ var userSchema = new mongoose.Schema({
 });
 
 /**** HOOKS ****/
-
-
 userSchema.pre('save', function (next){
   var user = this;
   // if the password has not been changed, save the user and move on...
@@ -44,7 +41,6 @@ userSchema.pre('save', function (next){
 });
 
 /***** AUTHENTICATION *********/
-
 userSchema.statics.authenticate = function (formData, callback) {
   // this refers to the model!
   this.findOne({

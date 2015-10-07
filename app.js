@@ -62,10 +62,6 @@ app.post("/signup", function (req,res){
   });
 });
 
-// app.get("/login", function (req,res){
-//   res.render("users/login");
-// });
-
 app.post("/login", function (req,res){
   db.User.authenticate(req.body.user,
     function (err,user){
@@ -101,7 +97,6 @@ app.get("/ready", function (req,res){
     }
   });
 });
-
 
 //GO TO THE GAME
 app.get("/randomsong", function (req,res){
@@ -152,30 +147,6 @@ app.get("/scores/new", function (req,res){
   res.render("new");
 });
 
-//POST high score --> Don't need to: update scores of users with score:0
-app.post("/scores", function (req,res){
-  //   db.Score.create({
-  //   name:req.body.username,
-  //   score:req.body.score
-  // });
-  //   if(req.body.nextsong){
-  //     res.redirect("/randomsong?id=" + score.id + "&name=" + encodeURIComponent(score.name) + "&score=" + encodeURIComponent(score.score));
-  //   }else{
-      res.redirect("/scores");
-  //   }
-});
-
-//EDIT High score  --> Why?
-app.get("/scores/:id/edit", function (req,res){
-  // db.Score.findById(req.params.id, function (err,score){
-  //   if(err){
-  //     console.log(err);
-  //   }else{
-      res.render("edit");
-  //   }
-  // });
-});
-
 //SHOW specific high score --> necessary??
 app.put("/scores/:id", function (req,res){
   // db.Score.findByIdAndUpdate(req.params.id, {name:req.body.name,score:req.body.score}, function (err, score){
@@ -200,7 +171,6 @@ app.delete("/scores", function (req,res){
       }
   });
 });
-
 
 app.get('*', function(req,res){
   res.render('404');
