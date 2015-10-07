@@ -1,6 +1,19 @@
 <% include ./partials/header %>
 
-<h1>Index page for scores</h1>
+<table class="table">
+<thead>
+  <th>Player</th>
+  <th>Score</th>
+</thead>
+<tbody>
+  <%users.forEach(function(el){%>
+  <tr>
+    <td><%=el.name%></td>
+    <td><%=el.score%></td>  
+  </tr>
+   <% }) %>
+</tbody>
+</table>
 
 
 

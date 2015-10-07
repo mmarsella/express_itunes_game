@@ -106,6 +106,7 @@ app.get("/randomsong", function (req,res){
   });
 });
 
+//update user score once they guess
 app.put("/songs",function (req,res){
   console.log("REQ BODY:",req.body.score);
   db.User.findById(req.session.id, function (err,user){
@@ -113,6 +114,7 @@ app.put("/songs",function (req,res){
       console.log(err);
     }else{
       console.log("HELLO!");
+      // is this the proper way to be using a put?  w/o findByIdAndUpdate?? it works....
       user.score = user.score + parseInt(req.body.score.score);
       user.save();
       res.redirect("/randomsong");
@@ -122,14 +124,16 @@ app.put("/songs",function (req,res){
 
 // HIGH SCORE PAGE
 app.get("/scores", function (req,res){
-  // db.Score.find({}, function (err,scores){
-  //   console.log(scores);
-  //   if(err){
-  //     console.log(err);
-  //   }else{
-    res.render("index");
-  //   }
-  // });
+
+  db.User.find({}, function (err,users){
+    if(err){
+      console.log(err);
+    }else{
+      db.User.findById(req.session.id,function (err,user){
+        res.render("index",{users:users, user:user});
+      });
+    }
+  });
 });
 
 //To create a new high score
