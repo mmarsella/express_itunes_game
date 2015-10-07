@@ -72,7 +72,7 @@ app.post("/login", function (req,res){
       console.log("THE USER: " + user);
       if(!err && user !== null){
         req.login(user);
-        res.redirect("/randomsong");
+        res.redirect("/ready");
       }else{
         console.log("THE ERROR:",err);
         res.redirect("404");
@@ -87,6 +87,11 @@ app.get("/logout", function (req,res){
 
 /********** GAME ROUTES ***************/
 
+//redirects to the game
+app.get("/", function(req, res) {
+  res.redirect("/ready");
+});
+
 app.get("/ready", function (req,res){
     db.User.findById(req.session.id, function (err,user){
     if(err){
@@ -97,10 +102,6 @@ app.get("/ready", function (req,res){
   });
 });
 
-//redirects to the game
-app.get("/", function(req, res) {
-  res.redirect("/randomsong");
-});
 
 //GO TO THE GAME
 app.get("/randomsong", function (req,res){

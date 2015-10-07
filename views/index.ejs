@@ -60,7 +60,7 @@
       </nav>
 <%if(user){%>
 <form action="/scores?_method=delete" method="POST">
-  <button>RESET <%=user.name%>'s score</button>
+  <button class="btn-success">RESET <%=user.name%>'s score</button>
 </form>
 <%}%>
 
