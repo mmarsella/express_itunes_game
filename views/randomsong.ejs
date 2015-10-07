@@ -31,7 +31,13 @@
       <br>
     <!-- HIDDEN FORM: send to a put  -->
   </div>
+    <%if(user){%>
     <form action="/songs?_method=put" method="POST" id="hiddenForm">
+    <%}else%>
+    <%{%>
+    <form id="hiddenForm">
+    <%}%>
+
       <input type="hidden" name="score[name]" value="" id="scoreName">
       <input type="hidden" name="score[score]" value="" id="scoreScore">
       <input type="hidden" name="nextsong" value="true" id="nextSong">
