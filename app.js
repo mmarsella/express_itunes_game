@@ -189,10 +189,12 @@ app.put("/scores/:id", function (req,res){
 //add a score reset button
 //delete a high score  --> would it still be CRUD'ish if I change the score back to 0??
 app.delete("/scores", function (req,res){
-  db.User.findById(req.session.id, function (err){
+  db.User.findById(req.session.id, function (err,user){
       if(err){
         res.render("404");
       }else{
+        user.score = 0;
+        user.save();
         res.redirect("/scores");
       }
   });

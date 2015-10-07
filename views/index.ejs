@@ -58,6 +58,11 @@
           </div>
         </div>
       </nav>
+<%if(user){%>
+<form action="/scores?_method=delete" method="POST">
+  <button>RESET <%=user.name%>'s score</button>
+</form>
+<%}%>
 
  <canvas id="myChart" width="800" height="500"></canvas>
 
