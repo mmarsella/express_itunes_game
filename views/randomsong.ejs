@@ -29,8 +29,6 @@
     </div>
       <br>
       <br>
-    <!-- HIDDEN FORM: send to a put  -->
-  </div>
     <%if(user){%>
     <form action="/songs?_method=put" method="POST" id="hiddenForm">
     <%}else%>
@@ -43,16 +41,13 @@
       <input type="hidden" name="nextsong" value="true" id="nextSong">
         <button class="btn-warning btn-lg text-cen" id="button">PLAY</button>
     </form>
+    <!-- HIDDEN FORM: send to a put  -->
+  </div>
   
 
   <div class="col-xs-3">
     <audio id="audio_preview" src="<%=song.previewUrl%>"></audio> 
   </div> 
-
-
-
-
-
 
 
 

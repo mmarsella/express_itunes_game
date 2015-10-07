@@ -198,7 +198,11 @@ app.listen(3000, function () {
   console.log("Starting a server on localhost:3000");
   });
 
+/**** TO DO FOR WED OCT 6 ******/
 
+//1) Allow song to play w/o reset (Maybe AJAX?)
+//2) Delete/reset score
+//3) Show user score
 
 
 

@@ -1,23 +1,15 @@
 <% include ./partials/header %>
 
-<table class="table">
-<thead>
-  <th>Player</th>
-  <th>Score</th>
-</thead>
-<tbody>
-  <%users.forEach(function(el){%>
-  <tr>
-    <td><%=el.name%></td>
-    <td><%=el.score%></td>  
-  </tr>
-   <% }) %>
-</tbody>
-</table>
 
+ <canvas id="myChart" width="500" height="500"></canvas>
 
-
-
+<!-- Pass into DOM for chart -->
+<form action="">
+  <%users.forEach(function(user){%>
+    <input type="hidden" name="user[name]" value="<%=user.name%>" class="name">
+    <input type="hidden" name="user[score]" value="<%=user.score%>" class="score">
+    <%})%>
+</form>
 
 
 <% include ./partials/footer %>
